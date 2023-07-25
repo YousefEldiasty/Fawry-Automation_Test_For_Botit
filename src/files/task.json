@@ -1,0 +1,51 @@
+{
+  "userLogins": [
+    {
+      "email": "testbotitb2@dist.com",
+      "password": "123456"
+    },
+    {
+      "email": "ewrwerwtestbotitb2@dist.com",
+      "password": "123456"
+    },
+    {
+      "email": "testbotitb2@dist.com",
+      "password": "1234567891011"
+    }
+  ],
+
+  "NewCategory":[
+      {
+        "CategoryEnName": "cafe",
+        "CategoryArName": "قهوه"
+      },
+      {
+        "CategoryEnName": "mobile",
+        "CategoryArName": "هاتف"
+      }
+  ],
+  "NewItems": [
+    {
+      "ITEMENNAME": "sam",
+      "ITEMARNAME": "سونج",
+      "DISCOUNT" : "70",
+      "STATUS" :"Active",
+      "MENUCATEGORY": "mobile",
+      "image": "mobile.jpeg",
+      "ENDESCRIPTION":" MY SWEET MOBILE WELCOME IN FUNNY WORLD   ",
+      "ARDESCRIPTION": " موبايل العزيز اهلا بك في عالم الضحك ",
+      "PRICE": "700"
+    },
+    {
+      "ITEMENNAME": "blackCafe",
+      "ITEMARNAME": "قهوه سوده",
+      "DISCOUNT" : "50",
+      "STATUS" :"Active",
+      "MENUCATEGORY": "cafe",
+      "image": "blackCafe.jpeg",
+      "ENDESCRIPTION":" Black Cafe is a trendy ",
+      "ARDESCRIPTION": " مقهى الأسود هو مقهى عصري ",
+      "PRICE": "5000"
+    }
+  ]
+}
