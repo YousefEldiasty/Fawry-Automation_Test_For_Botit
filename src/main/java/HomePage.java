@@ -145,24 +145,7 @@ public class HomePage extends PageBase {
            }
         }
     }
-/*
-    public void changePriceLoop() throws InterruptedException {
-        ClickButton(CatalogButton);
-        Thread.sleep(6000);
-        ClickButton(ItemsButton);
-        Thread.sleep(5000);
-        //WebElement Pages = driver.findElement(By.xpath("//div[@id=\"Grid_paginate\"]//span"));
-
-        List <WebElement> page = (List<WebElement>) driver.findElement(By.xpath("//div[@id=\"Grid_paginate\"]//span//a"));
-        System.out.println(page.size());
-
-        for(int p = 0 ; p <= page.size(); p++)
-        {
-            
-        }
-
-    }
-    */
+    
     public void AddNewItem() throws InterruptedException {
         Thread.sleep(2000);
         ClickButton(CatalogButton);
@@ -172,6 +155,5 @@ public class HomePage extends PageBase {
         ClickButton(AddNewItemButton);
         Thread.sleep(2000);
     }
-
 
 }
