@@ -94,29 +94,29 @@ public class ItemPage extends PageBase{
     private WebElement CatalogButton;
     @FindBy(id = "Grid")
     private WebElement table;
-
-    //manual method
-    public void addItem() throws InterruptedException, AWTException {
-        ItemEgNameField.sendKeys("blackCafe");
-        js.executeScript("arguments[0].value = arguments[1]",ArabicNameField,"قهوه سوده");
-        DiscountField.sendKeys("50");
+    //Automate method
+    public void addItemWithDataProvider(String ITEMENNAME,String ITEMARNAME,String DISCOUNT,String STATUS,String MENUCATEGORY,String image,String ENDESCRIPTION,String ARDESCRIPTION,String PRICE) throws InterruptedException, AWTException {
+        ItemEgNameField.sendKeys(ITEMENNAME);
+        js.executeScript("arguments[0].value = arguments[1]",ArabicNameField,ITEMARNAME);
+        DiscountField.sendKeys(DISCOUNT);
+        //Thread.sleep(2000);
         Select Status = new Select(StatusElement);
-        Status.selectByVisibleText("Active");
+        Status.selectByVisibleText(STATUS);
         //Dropdown category
         Select MenuCategory = new Select(ChooseMenuCategorySelector);
-        MenuCategory.selectByVisibleText("cafe");
-        // upload image
-        UploadImageMethod();
+        MenuCategory.selectByVisibleText(MENUCATEGORY);
+        //Upload image
+        UploadImageMethodWithDataProvider(image);
         // Write Description
-        EnglishDescription.sendKeys("Black Cafe is a trendy and stylish coffee shop nestled in the heart of the city.");
-        js.executeScript("arguments[0].value = 'مقهى الأسود هو مقهى عصري وأنيق يقع في قلب المدينة.'",ArabicDescription);
+        EnglishDescription.sendKeys(ENDESCRIPTION);
+        js.executeScript("arguments[0].value = arguments[1]",ArabicDescription,ARDESCRIPTION);
         // items variation
         js.executeScript("arguments[0].click();",VariationYes);
-        // enter price
-        Price.sendKeys("5000");
+        // Enter Price
+        Price.sendKeys(PRICE);
         //ExtendedPreparationTimeYes.click();
         ExtendedPreparationTimeNo.click();
-    /*
+            /*
         // Add modifiers
         js.executeScript("arguments[0].click();",Modifiers);
         Modifiers.click();
@@ -133,58 +133,10 @@ public class ItemPage extends PageBase{
         ModDone.click();
         *//*
     */
-        //Save Item
-        SaveAndExit.click();
-    }
-    // automate method
-    public void addItemWithDataProvider(String ITEMENNAME,String ITEMARNAME,String DISCOUNT,String STATUS,String MENUCATEGORY,String image,String ENDESCRIPTION,String ARDESCRIPTION,String PRICE) throws InterruptedException, AWTException {
-        ItemEgNameField.sendKeys(ITEMENNAME);
-        js.executeScript("arguments[0].value = arguments[1]",ArabicNameField,ITEMARNAME);
-        DiscountField.sendKeys(DISCOUNT);
-        //Thread.sleep(2000);
-        Select Status = new Select(StatusElement);
-        Status.selectByVisibleText(STATUS);
-        //Dropdown category
-        Select MenuCategory = new Select(ChooseMenuCategorySelector);
-        MenuCategory.selectByVisibleText(MENUCATEGORY);
-        // upload image
-        UploadImageMethodWithDataProvider(image);
-        // Write Description
-        EnglishDescription.sendKeys(ENDESCRIPTION);
-        js.executeScript("arguments[0].value = arguments[1]",ArabicDescription,ARDESCRIPTION);
-        // items variation
-        js.executeScript("arguments[0].click();",VariationYes);
-        // enter price
-        Price.sendKeys(PRICE);
-        //ExtendedPreparationTimeYes.click();
-        ExtendedPreparationTimeNo.click();
+
         //Save Item
         SaveAndExit.click();
         Thread.sleep(2000);
-    }
-    // manual method
-    public void UploadImageMethod() throws InterruptedException, AWTException {
-        String ImageName = "blackCafe.jpeg";
-        String ImagePath = System.getProperty("user.dir")+"\\src\\uploads\\"+ImageName;
-        UploadImage.click();
-        Thread.sleep(2000);
-        // Robot Class
-        Robot robot = new Robot();
-        // Copy the path control c
-        StringSelection selection = new StringSelection(ImagePath);
-        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-        clipboard.setContents(selection,null);
-        // get into EnterPath field
-        robot.keyPress(KeyEvent.VK_ENTER);
-        robot.keyRelease(KeyEvent.VK_ENTER);
-        // past control v
-        robot.keyPress(KeyEvent.VK_CONTROL);
-        robot.keyPress(KeyEvent.VK_V);
-        robot.keyRelease(KeyEvent.VK_V);
-        robot.keyRelease(KeyEvent.VK_CONTROL);
-        // press okay by click Enter
-        robot.keyPress(KeyEvent.VK_ENTER);
-        robot.keyRelease(KeyEvent.VK_ENTER);
     }
     //Automate method
     public void UploadImageMethodWithDataProvider(String image) throws InterruptedException, AWTException {
@@ -211,7 +163,7 @@ public class ItemPage extends PageBase{
         robot.keyRelease(KeyEvent.VK_ENTER);
     }
 
-    // find element by looping then change price
+    //Find the element by looping then change the price
     public void changeItemPricePages() throws InterruptedException {
         ClickButton(CatalogButton);
         Thread.sleep(4000);
