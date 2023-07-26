@@ -23,11 +23,6 @@ public class LoginPage extends PageBase {
         SendKeyForLoginFields(EmailText,email);
         SendKeyForLoginFields(PasswordText,password);
         ClickButton(LoginButton);
-
         Thread.sleep(3000);
-
-        //valid login
-        //Assert.assertTrue("LoginAssertion",driver.getCurrentUrl() == "http://transmission-dev.azurewebsites.net/");
-
     }
 }
